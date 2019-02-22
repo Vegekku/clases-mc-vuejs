@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vue</title>
+</head>
+<body>
+  <main>
+    <p>{{hola}}</p>
+    <p v-if='user'>user if: {{user}}</p>
+    <p v.else>No hay usuario</p>
+    <p v.show='user'>user show: {{user}}</p>
+
+    <!-- template no se carga en el DOM, solo su contenido -->
+    <template v-if='surname'>
+      <p>Hola</p>
+      <p>{{surname}}</p>
+    </template>
+
+    <div v-for='(key, index) in elements'>
+      <p>{{key}} - {{index}}</p>
+    </div>
+    <div v-for='(key, value, index) in objects'>
+      <p>{{value}} - {{key}} - {{index}}</p>
+    </div>
+
+    <input type="text" v-model='surname'>
+    <input type="text" v-model='price'>
+    <p class='otra-clase' v-bind:class='user'>userCompleted: {{userCompleted}}</p>
+    <p>userCompleted2: {{userCompleted2()}}</p>
+    <button @click.event.preventDefault='click(user)'>user</button>
+
+    <p>{{price | currency}}</p>
+  </main>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
